@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.st.BlueSTSDK.Example"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_child_care_black_24dp"
+        android:label="婴儿宝"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ScanActivity"
+            android:label="婴儿宝">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FeatureListActivity"
+            android:label="功能属性"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ScanActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.st.BlueSTSDK.Example.ScanActivity"/>
+        </activity>
+        <activity
+            android:name=".DebugConsoleActivity"
+            android:label="调试控制台"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".FeatureListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.st.BlueSTSDK.Example.FeatureListActivity"/>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".DebugConsoleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.st.BlueSTSDK.Example.FeatureListActivity"/>
+        </activity>
+        <service android:name=".MusicServer">
+            <intent-filter>
+                <action android:name="com.angel.Android.MUSIC"/>
+                <category android:name="android.intent.category.default" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
